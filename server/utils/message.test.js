@@ -4,13 +4,11 @@ var {generateMessage} = require('./message');
 
 describe('generateMessage', () => {
   it('should generate the correct message object', () => {
-    var messageObj = generateMessage('FromUser', 'FromMessage');
+    var from = 'Jen';
+    var text = 'Some message';
+    var message = generateMessage(from, text);
 
-    expect(messageObj)
-      .toInclude({
-        from: 'FromUser',
-        text: 'FromMessage'
-      });
-    expect(messageObj.createdAt).toBeA('number');
+    expect(message.createdAt).toBeA('number');
+    expect(message).toInclude({from, text});
   });
 });
